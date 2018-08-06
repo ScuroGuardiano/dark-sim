@@ -2,6 +2,7 @@ import Ship from "./ship";
 import { SHIPS, DEFENSE_SYSTEMS } from "./constants";
 import RapidFire from "./rapidfire";
 
+//Militar ships
 const lightFigher = new Ship(
     SHIPS.LIGHT_FIGHTER,
     { hull: 400, shield: 10, attack: 50 },
@@ -95,7 +96,65 @@ const deathStar = new Ship(
         new RapidFire(DEFENSE_SYSTEMS.ION_CANNON, 100),
         new RapidFire(SHIPS.BATTLECRUISER, 15),
     ]
-)
+);
+//Civil ships
+const smallCargo = new Ship(
+    SHIPS.SMALL_CARGO,
+    { hull: 400, shield: 10, attack: 5 },
+    [
+        new RapidFire(SHIPS.ESPIONAGE_PROBE, 5),
+        new RapidFire(SHIPS.SOLAR_SATELLITE, 5)
+    ]
+);
+const largeCargo = new Ship(
+    SHIPS.LARGE_CARGO,
+    { hull: 1200, shield: 25, attack: 5 },
+    [
+        new RapidFire(SHIPS.ESPIONAGE_PROBE, 5),
+        new RapidFire(SHIPS.SOLAR_SATELLITE, 5)
+    ]
+);
+const colonyShip = new Ship(
+    SHIPS.COLONY_SHIP,
+    { hull: 3000, shield: 100, attack: 50 },
+    [
+        new RapidFire(SHIPS.ESPIONAGE_PROBE, 5),
+        new RapidFire(SHIPS.SOLAR_SATELLITE, 5)
+    ]
+);
+const recycler = new Ship(
+    SHIPS.RECYCLER,
+    { hull: 1600, shield: 10, attack: 1 },
+    [
+        new RapidFire(SHIPS.ESPIONAGE_PROBE, 5),
+        new RapidFire(SHIPS.SOLAR_SATELLITE, 5)
+    ]
+);
+const espionageProbe = new Ship(
+    SHIPS.ESPIONAGE_PROBE,
+    { hull: 100, shield: 0.01, attack: 0.01 }
+);
+const solarSatellite = new Ship(
+    SHIPS.SOLAR_SATELLITE,
+    { hull: 200, shield: 1, attack: 1 }
+);
 
 
-export default new Map<SHIPS, Ship>();
+export default new Map<SHIPS, Ship>(
+    [
+        [SHIPS.LIGHT_FIGHTER, lightFigher],
+        [SHIPS.HEAVY_FIGHTER, heavyFighter],
+        [SHIPS.CRUISER, cruiser],
+        [SHIPS.BATTLESHIP, battleship],
+        [SHIPS.BATTLECRUISER, battlecruiser],
+        [SHIPS.BOMBER, bomber],
+        [SHIPS.DESTROYER, destroyer],
+        [SHIPS.DEATH_STAR, deathStar],
+        [SHIPS.SMALL_CARGO, smallCargo],
+        [SHIPS.LARGE_CARGO, largeCargo],
+        [SHIPS.COLONY_SHIP, colonyShip],
+        [SHIPS.RECYCLER, recycler],
+        [SHIPS.ESPIONAGE_PROBE, espionageProbe],
+        [SHIPS.SOLAR_SATELLITE, solarSatellite]
+    ]
+);
