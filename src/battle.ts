@@ -26,6 +26,13 @@ export default class Battle {
             this.roundCounter++;
         }
     }
+    public getResult() {
+        return {
+            winner: this.getWinner(),
+            attackerForces: this.attackerForcesToMap(),
+            defenderForces: this.defenderForcesToMap()
+        };
+    }
     /**
      * Performs next battle round
      */
@@ -145,6 +152,32 @@ export default class Battle {
                     this.defenderDefense.push(DefenseFactory.createDefenseSystem(<DEFENSE_SYSTEMS>forceId));
             }
         });
+    }
+    private attackerForcesToMap() {
+        let attackerForces = new Map<SHIPS, number>();
+        this.attackerFleet.forEach(ship => {
+            if(!attackerForces.has(ship.id)) {
+                attackerForces.set(ship.id, 0);
+            }
+            attackerForces.set(ship.id, attackerForces.get(ship.id) + 1);
+        });
+        return attackerForces;
+    }
+    private defenderForcesToMap() {
+        let defenderForces = new Map<SHIPS | DEFENSE_SYSTEMS, number>();
+        this.defenderFleet.forEach(ship => {
+            if(!defenderForces.has(ship.id)) {
+                defenderForces.set(ship.id, 0);
+            }
+            defenderForces.set(ship.id, defenderForces.get(ship.id) + 1);
+        });
+        this.defenderDefense.forEach(defenseSystem => {
+            if(!defenderForces.has(defenseSystem.id)) {
+                defenderForces.set(defenseSystem.id, 0);
+            }
+            defenderForces.set(defenseSystem.id, defenderForces.get(defenseSystem.id) + 1);
+        });
+        return defenderForces;
     }
     
     private attackerFleet: Ship[];
