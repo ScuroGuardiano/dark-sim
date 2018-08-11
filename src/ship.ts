@@ -1,9 +1,9 @@
-import IShipParameters from "./iship-params";
+import IUnit from "./iship-params";
 import RapidFire from "./rapidfire";
 import { SHIPS } from "./constants";
 
-export default class Ship {
-    constructor(shidId: SHIPS, params: IShipParameters, rapidfire?: Array<RapidFire>) {
+export default class Ship implements IUnit {
+    constructor(shidId: SHIPS, params: IUnit, rapidfire?: Array<RapidFire>) {
         this.id = shidId;
         this.hull = params.hull;
         this.shield = params.shield;

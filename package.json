@@ -1,0 +1,23 @@
+{
+  "name": "dark-ogame-sim",
+  "version": "1.0.0",
+  "description": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScuroGuardiano/dark-sim.git"
+  },
+  "author": "ScuroGuardiano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ScuroGuardiano/dark-sim/issues"
+  },
+  "homepage": "https://github.com/ScuroGuardiano/dark-sim#readme",
+  "dependencies": {
+    "@types/random-js": "^1.0.30",
+    "random-js": "^1.0.8"
+  }
+}

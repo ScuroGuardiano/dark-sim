@@ -1,7 +1,8 @@
 import { DEFENSE_SYSTEMS } from "./constants";
 import IDefenseSystemParameters from "./idefense-params";
+import IUnit from "./iunit";
 
-export class DefenseSystem {
+export class DefenseSystem implements IUnit {
     constructor(defenseId: DEFENSE_SYSTEMS, params: IDefenseSystemParameters) {
         this.id = defenseId;
         this.hull = params.hull;
